@@ -9,9 +9,3 @@ import java.util.Optional;
 @Repository
 public interface AthleteRepository extends CrudRepository<Athlete, Long> {
 
-    Optional<Athlete> findByID(Long id);
-
-    Iterable<Athlete> findALL();
-
-    void deleteById();
-}
