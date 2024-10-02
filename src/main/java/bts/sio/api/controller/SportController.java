@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
-import static com.sun.beans.introspect.PropertyInfo.Name.description;
+
 
 @RestController
 public class SportController {
@@ -29,12 +29,12 @@ public class SportController {
     /**
      * Read - Get one athlete
      * @param id The id of the athlete
-     * @return An Athlete object full filled
+     * @return An Sport object full filled
      */
     @GetMapping("/sport/{id}")
     public Sport getSport(@PathVariable("id") final Long id) {
         Optional<Sport> sport = sportService.getSport(id);
-        if(sport.isPresent()) {
+        if (sport.isPresent()) {
             return sport.get();
         } else {
             return null;
@@ -43,17 +43,17 @@ public class SportController {
 
     /**
      * Read - Get all athletes
-     * @return - An Iterable object of Athlete full filled
+     * @return - An Iterable object of Sport full filled
      */
-    @GetMapping("/Sports")
+    @GetMapping("/sports")
     public Iterable<Sport> getSports() {
         return sportService.getSports();
     }
 
     /**
      * Update - Update an existing athlete
-     * @param id - The id of the athlete to update
-     * @param sport - The athlete object updated
+     * @param id - The id of the sport to update
+     * @param sport - The sport object updated
      * @return
      */
     @PutMapping("/sport/{id}")
@@ -66,7 +66,7 @@ public class SportController {
             if(nom != null) {
                 currentSport.setNom(nom);
             }
-            String decription = sport.getDescription();
+            String description = sport.getDescription();
             if(description != null) {
                 currentSport.setDescription(description);;
             }
@@ -81,7 +81,7 @@ public class SportController {
 
     /**
      * Delete - Delete an athlete
-     * @param id - The id of the athlete to delete
+     * @param id - The id of the sport to delete
      */
     @DeleteMapping("/sport/{id}")
     public void deleteSport(@PathVariable("id") final Long id) {
