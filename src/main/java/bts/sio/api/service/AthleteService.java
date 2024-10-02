@@ -19,15 +19,15 @@ public class AthleteService {
     private AthleteRepository athleteRepository;
 
     public Optional<Athlete> getAthlete(final Long id) {
-        return athleteRepository.findByID(id);
+        return athleteRepository.findById(id);
     }
 
     public Iterable<Athlete> getAthletes() {
-        return athleteRepository.findALL();
+        return athleteRepository.findAll();
     }
 
     public void deleteAthlete(final Long id) {
-        athleteRepository.deleteById();
+        athleteRepository.deleteById(id);
     }
 
     public Athlete saveAthlete(Athlete athlete) {
