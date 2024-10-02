@@ -19,9 +19,8 @@ public class SportService {
     @Autowired
     private SportRepository sportRepository;
 
-    public Sport getSport(Long id) {
-        Optional<Sport> sport = sportRepository.findById(id);
-        return sport.orElse(null); // Renvoie null si le sport n'existe pas
+    public Optional<Sport> getSport(Long id) {
+        return sportRepository.findById(id);
     }
 
     public ArrayList<Sport> getSports() {
